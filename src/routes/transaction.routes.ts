@@ -5,7 +5,7 @@ import { createTransaction, getTransactionById, getTransactions, updateTransacti
 
 const router = Router();
 
-router.post("/checkout", upload.single("image"), createTransaction);
+router.post("/checkout", authenticate, upload.single("image"), createTransaction);
 router.get("/", authenticate, getTransactions);
 router.get("/:id", getTransactionById);
 router.patch("/:id", authenticate, updateTransaction);
